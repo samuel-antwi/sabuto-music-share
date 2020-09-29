@@ -8,9 +8,12 @@
 # testing
 /coverage
 
+
+/src/services/config.js
+
 # production
 /build
-/src/services/config.js
+
 
 # misc
 .DS_Store
