@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  apiKey: 'AIzaSyC09AnHy8vH0uMp0i8RuJz-S-SExUY4ZLU',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'music-sahre.firebaseapp.com',
   databaseURL: 'https://music-sahre.firebaseio.com',
   projectId: 'music-sahre',
