@@ -35,71 +35,64 @@ const SignUp = () => {
       <div className='signup'>
         <div className='overlay'>
           <div className='container mx-auto'>
-            <div className='form-wrapper  mx-auto'>
-              <form
-                onSubmit={handleSignUp}
-                className='text-white max-w-md mx-auto p-5'>
-                <h2 className='mb-3 text-2xl'>Sign Up</h2>
-                {error && (
-                  <div
-                    className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3 flex items-center'
-                    role='alert'>
-                    <RiErrorWarningFill size='1.5rem' />
-                    <span className='block sm:inline'>{error}</span>
+            <div className='form_container max-w-2xl mx-auto'>
+              <div className='form-wrapper '>
+                <form onSubmit={handleSignUp} className='text-white p-5 max-w-lg mx-auto'>
+                  <h2 className='mb-3 text-2xl'>Sign Up</h2>
+                  {error && (
+                    <div
+                      className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3 flex items-center'
+                      role='alert'>
+                      <RiErrorWarningFill size='1.5rem' />
+                      <span className='block sm:inline'>{error}</span>
+                    </div>
+                  )}
+                  <div className='mb-5'>
+                    <input
+                      name='username'
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                      className='w-full text-black p-3 rounded outline-none'
+                      type='text'
+                      placeholder='Username'
+                    />
                   </div>
-                )}
-                <div className='mb-5'>
-                  <input
-                    name='username'
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                    className='w-full text-black p-3 rounded outline-none'
-                    type='text'
-                    placeholder='Username'
-                  />
-                </div>
-                <div className='mb-5'>
-                  <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    name='email'
-                    value={email}
-                    className='w-full text-black p-3 rounded outline-none'
-                    type='text'
-                    placeholder='Email address'
-                  />
-                </div>
-                <div className='mb-5'>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    name='password'
-                    value={password}
-                    className='w-full text-black p-3 rounded outline-none'
-                    type='password'
-                    placeholder='Password'
-                  />
-                </div>
-                <button
-                  disabled={loading}
-                  className='bg-teal-900 w-full p-3 rounded'
-                  type='submit'>
-                  {loading ? 'Loading...' : 'Submit'}
-                </button>
-                <div className='d-flex justify-content-between'>
-                  <div className='pt-4'>
-                    <Link className='text-light underline' to='LoginHelp'>
-                      Need Help?
-                    </Link>
+                  <div className='mb-5'>
+                    <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      name='email'
+                      value={email}
+                      className='w-full text-black p-3 rounded outline-none'
+                      type='text'
+                      placeholder='Email address'
+                    />
                   </div>
-                </div>
-                <div className='py-3'>
-                  <p>
-                    Already have an account?
-                    <Link className='mx-4 underline' to='/login'>
-                      Login
-                    </Link>
-                  </p>
-                </div>
-              </form>
+                  <div className='mb-5'>
+                    <input
+                      onChange={(e) => setPassword(e.target.value)}
+                      name='password'
+                      value={password}
+                      className='w-full text-black p-3 rounded outline-none'
+                      type='password'
+                      placeholder='Password'
+                    />
+                  </div>
+                  <button
+                    disabled={loading}
+                    className='bg-teal-900 w-full p-3 rounded'
+                    type='submit'>
+                    {loading ? 'Loading...' : 'Submit'}
+                  </button>
+                  <div className='py-5'>
+                    <p>
+                      Already have an account?
+                      <Link className='mx-4 underline' to='/login'>
+                        Login
+                      </Link>
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -129,10 +122,16 @@ const Styles = styled.div`
     background: rgba(0, 0, 0, 0.8);
   }
   .form-wrapper {
-    max-width: 700px;
     background: rgba(0, 0, 0, 0.4);
-    margin-top: 100px;
     box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
     border-radius: 10px;
+  }
+
+  .form_container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    height: 100vh;
   }
 `;

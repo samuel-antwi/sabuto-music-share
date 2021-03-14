@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { BiHeadphone } from 'react-icons/bi';
-import { AiOutlineMenu } from 'react-icons/ai';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -9,7 +8,6 @@ import { signOut } from '../services/firebase';
 import { SongContext } from '../context/SongContext';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import { IconButton } from '@material-ui/core';
 
 const Header = () => {
   const { user } = useContext(UserAuthContext);
@@ -37,7 +35,7 @@ const Header = () => {
                 {user.displayName}
               </div>
             )}
-            {!user && <Link to='/login'>Login</Link>}
+            {/* {!user && <Link to='/login'>Demo</Link>} */}
             {user && (
               <Link onClick={signOut} to='/'>
                 Log Out
@@ -49,10 +47,7 @@ const Header = () => {
           </div>
         </div>
         {/* Side nav links */}
-        <div
-          onClick={toggleSideNav}
-          style={{ left: sideNav ? '0' : null }}
-          className='side-nav'>
+        <div onClick={toggleSideNav} style={{ left: sideNav ? '0' : null }} className='side-nav'>
           <div className=' side-nav-links items-center'>
             {user && <Link to='playlist'>Playlist ({state.queue.length})</Link>}
             {user && (

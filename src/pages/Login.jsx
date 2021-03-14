@@ -30,60 +30,51 @@ const Login = () => {
       <div className='login'>
         <div className='overlay'>
           <div className='container mx-auto'>
-            <div className='form-wrapper  mx-auto'>
-              <form
-                onSubmit={handleLogin}
-                className='text-white max-w-md mx-auto p-5'>
-                <h1 className='mb-3 text-2xl'>Sign In</h1>
-                {error && (
-                  <div
-                    className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3 flex items-center'
-                    role='alert'>
-                    <span>
-                      <RiErrorWarningFill size='1.5rem' />
-                    </span>
-                    <span className='block sm:inline'>{error}</span>
+            <div className='form_container max-w-2xl mx-auto'>
+              <div className='form-wrapper'>
+                <form onSubmit={handleLogin} className='text-white max-w-lg mx-auto p-5'>
+                  <h1 className='mb-3 text-2xl'>Sign In</h1>
+                  {error && (
+                    <div
+                      className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-3 flex items-center'
+                      role='alert'>
+                      <span>
+                        <RiErrorWarningFill size='1.5rem' />
+                      </span>
+                      <span className='block sm:inline'>{error}</span>
+                    </div>
+                  )}
+                  <div className='mb-5'>
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className='w-full text-black p-3 rounded outline-none'
+                      type='text'
+                      placeholder='Email address'
+                    />
                   </div>
-                )}
-                <div className='mb-5'>
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className='w-full text-black p-3 rounded outline-none'
-                    type='text'
-                    placeholder='Email address'
-                  />
-                </div>
-                <div className='mb-5'>
-                  <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className='w-full text-black p-3 rounded outline-none'
-                    type='password'
-                    placeholder='Password'
-                  />
-                </div>
-                <button
-                  className='bg-teal-900 w-full p-3 rounded'
-                  type='submit'>
-                  {loading ? 'Login in...' : ' Log In'}
-                </button>
-                <div className='d-flex justify-content-between'>
-                  <div className='pt-4'>
-                    <Link className='text-light underline' to='LoginHelp'>
-                      Need Help?
-                    </Link>
+                  <div className='mb-5'>
+                    <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className='w-full text-black p-3 rounded outline-none'
+                      type='password'
+                      placeholder='Password'
+                    />
                   </div>
-                </div>
-                <div className='py-3'>
-                  <p>
-                    Don't have an account yet?
-                    <Link className='mx-4 underline' to='/signup'>
-                      Sign up now
-                    </Link>
-                  </p>
-                </div>
-              </form>
+                  <button className='bg-teal-900 w-full p-3 rounded' type='submit'>
+                    {loading ? 'Login in...' : ' Log In'}
+                  </button>
+                  <div className='py-5'>
+                    <p>
+                      Don't have an account yet?
+                      <Link className='mx-4 underline' to='/signup'>
+                        Sign up now
+                      </Link>
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -113,10 +104,16 @@ const Styles = styled.div`
     background: rgba(0, 0, 0, 0.8);
   }
   .form-wrapper {
-    max-width: 700px;
     background: rgba(0, 0, 0, 0.4);
-    margin-top: 100px;
     box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
     border-radius: 10px;
+  }
+
+  .form_container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    height: 100vh;
   }
 `;
